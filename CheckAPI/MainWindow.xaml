@@ -1,0 +1,62 @@
+﻿<Window x:Class="CheckAPI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CheckAPI"
+        mc:Ignorable="d"
+        Title="CheckAPI" Height="450" Width="800" Icon="israel.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <Label HorizontalAlignment="Center">כתובת</Label>
+                <TextBox x:Name="ServerUrl">http://localhost/R360.Server.IIS/services/services.asmx</TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <Label HorizontalAlignment="Center">מתודה</Label>
+                <TextBox x:Name="MethodAPI" LostFocus="MethodAPI_LostFocus">CreateDeliveryNote</TextBox>
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label HorizontalAlignment="Center" Grid.Row="0">תוכן XML</Label>
+
+                <TextBox Grid.Row="1"
+                         TextWrapping="Wrap" 
+                         AcceptsReturn="True" 
+                         MinHeight="250"
+                         HorizontalScrollBarVisibility="Auto"
+                         VerticalScrollBarVisibility="Auto"
+                         x:Name="XmlContentRequest">Enter XML text here</TextBox>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+            <Button Content="Send" Width="100" Click="Button_Click" Grid.Row="3" x:Name="BtnSend"/>
+            <Label x:Name="LblRunTime" Grid.Row="3" Width="200"></Label>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="15*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label HorizontalAlignment="Center" Grid.Row="0">Response</Label>
+            <TextBox Grid.Row="1"
+                     TextWrapping="Wrap" 
+                     AcceptsReturn="True" 
+                     VerticalScrollBarVisibility="Auto"
+                     x:Name="XmlResponse">No text</TextBox>
+        </Grid>
+    </Grid>
+</Window>
